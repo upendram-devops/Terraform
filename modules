@@ -1,0 +1,46 @@
+terraform-project/
+│
+├── main.tf
+├── variables.tf
+├── outputs.tf
+│
+└── modules/
+    └── ec2/
+        ├── main.tf
+        ├── variables.tf
+        └── outputs.tf
+
+
+
+
+
+
+```text
+Terraform-project/
+│
+├── Modules/
+│   │
+│   ├── Ec2/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   └── Storage/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
+│
+└── Environments/
+    │
+    ├── Dev/
+    │   ├── main.tf
+    │   └── provider.tf
+    │
+    ├── Test/
+    │   ├── main.tf
+    │   └── provider.tf
+    │
+    └── Prod/
+        ├── main.tf
+        └── provider.tf
+```

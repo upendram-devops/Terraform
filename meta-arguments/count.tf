@@ -15,3 +15,8 @@ resource "aws_instance" "web" {
   #count = 5 → Creates 5 EC2 instances.
   #count.index → Starts indexing from 0.
   #count.index + 1 → Names the instances from 1 to 5.
+
+#terraform init
+#terraform plan
+#terraform apply --auto-approve
+#terraform state list

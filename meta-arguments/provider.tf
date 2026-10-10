@@ -15,3 +15,19 @@ resource "aws_s3_bucket" "demo" {
 }
 
 # Explanation: The S3 bucket uses the AWS provider configuration aliased as us, which points to us-east-1.
+
+
+or
+
+terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.50"
+    }
+  }
+}
+
+provider "aws" {
+  region = "us-east-1"
+}

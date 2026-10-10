@@ -1,0 +1,6 @@
+terraform workspace list                       ---------- list the workspaces
+terraform workspace show                       ---------- shows current workspace
+terraform workspace new workspacename        ------------- create and switch the workspace
+terraform workspace select workspacename    ----------------- switch to workspace
+terraform workspace delete workspacename    ------------------ delete workspace
+terraform workspace delete -force workspacename ------------ delete workspace forcefully

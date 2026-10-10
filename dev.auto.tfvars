@@ -72,6 +72,7 @@ ami_id = "ami_id"      # ⚠️ replace with a real AMI ID
 #terraform fmt
 # terraform plan -var-file=dev.auto.tfvars
 # terraform apply -var-file=dev.auto.tfvars
+#terraform apply -var="itype=t3.micro"   -------------- without tfvars file we can pass values through command line argument.
 
 
 terraform-project/

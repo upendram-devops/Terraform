@@ -9,3 +9,10 @@ resource "aws_instance" "instance" {
   key_name          = "hi"
   availability_zone = "ap-south-2a"
 }
+
+
+#terraform life-cycle
+#terraform init
+#terraform plan
+#terraform apply --auto-approve
+#terraform destory --auto-approve

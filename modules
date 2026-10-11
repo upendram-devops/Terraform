@@ -44,3 +44,56 @@ Terraform-project/
         ├── main.tf
         └── provider.tf
 ```
+
+```text
+Terraform-project/
+│
+├── Modules/
+│   │
+│   ├── Ec2/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   │
+│   └── Storage/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
+│
+└── Environments/
+    │
+    ├── Dev/
+    │   ├── main.tf
+    │   ├── provider.tf
+    │   └── terraform.tfvars
+    │
+    ├── Test/
+    │   ├── main.tf
+    │   ├── provider.tf
+    │   └── terraform.tfvars
+    │
+    └── Prod/
+        ├── main.tf
+        ├── provider.tf
+        └── terraform.tfvars
+```
+
+
+A Terraform Module is a collection of Terraform configuration files grouped together to create and manage infrastructure in a reusable way.
+
+Instead of writing the same Terraform code repeatedly, you can create a module once and reuse it across multiple projects.
+
+1. Why Do We Use Terraform Modules?
+========================================
+Reusability: Reuse the same code across different projects.
+Maintainability: Update infrastructure code in one place.
+Organization: Keep Terraform code clean and structured.
+Consistency: Create resources using the same configuration.
+
+2. Real-Time Example
+====================
+Suppose you need to create EC2 instances for Development, Testing, and Production environments.
+
+Without modules, you might write similar EC2 configuration multiple times.
+
+With modules, you create the EC2 configuration once and reuse it for all three environments.

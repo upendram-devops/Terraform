@@ -1,0 +1,80 @@
+provisioners:
+=============
+
+Provisioners in Terraform are used to execute scripts or commands on a local machine or a remote machine during resource creation or destruction.
+
+For example, after creating an EC2 instance, you can use a provisioner to install Docker or configure a web server.
+
+1. Types of Provisioners
+--------------------------
+Terraform commonly uses these provisioners:
+
+local-exec — Executes commands on the machine running Terraform.
+remote-exec — Executes commands on a remote machine, such as an EC2 instance.
+file — Copies files or directories from the local machine to a remote machine.
+
+Examples:
+---------
+a). Local-Exec:-
+
+resource "aws_instance" "web" {
+  ami           = "ami-xxxxxxxx"
+  instance_type = "t3.micro"
+
+  provisioner "local-exec" {
+    command = "echo EC2 instance created"
+  }
+}
+
+Use case: Logging, running local scripts, or triggering another process.
+
+b). Remote-Exec Example:- Executes commands on a remote EC2 instance over SSH.
+
+resource "aws_instance" "web" {
+  ami           = "ami-xxxxxxxx"
+  instance_type = "t3.micro"
+  key_name      = "ram"
+
+  provisioner "remote-exec" {
+    inline = [
+      "sudo yum update -y",
+      "sudo yum install httpd -y",
+      "sudo systemctl start httpd"
+    ]
+
+    connection {
+      type        = "ssh"
+      user        = "ec2-user"
+      private_key = file("ram.pem")
+      host        = self.public_ip
+    }
+  }
+}
+
+Use case: Installing packages or running setup commands on an EC2 instance.
+
+c). File Provisioner:- Copies a local file to a remote EC2 instance.
+
+resource "aws_instance" "web" {
+  ami           = "ami-xxxxxxxx"
+  instance_type = "t3.micro"
+  key_name      = "ram"
+
+  provisioner "file" {
+    source      = "app.sh"
+    destination = "/tmp/app.sh"
+
+    connection {
+      type        = "ssh"
+      user        = "ec2-user"
+      private_key = file("ram.pem")
+      host        = self.public_ip
+    }
+  }
+}
+
+usecase: This example copies app.sh from your local machine to /tmp/app.sh on the EC2 instance.
+
+
+note:  Terraform recommends using provisioners only when necessary. Prefer cloud-init, EC2 user data, configuration-management tools, 
+       or purpose-built resources when they can accomplish the same task more reliably.

@@ -1,0 +1,13 @@
+NACL (Network Access Control List) is a security layer in AWS that controls incoming and outgoing traffic for subnets inside a VPC.
+
+why:-
+-----
+🛡️ Control inbound and outbound network traffic.
+🚫 Allow or deny traffic based on rules.
+🔒 Add an extra layer of security to subnets.
+🌐 Filter traffic using IP addresses and protocol/port rules.
+
+types:-
+---------
+Default NACL: By default, it allows all inbound and outbound traffic.
+Custom NACL: Initially denies all traffic until you add rules to allow specific traffic.
